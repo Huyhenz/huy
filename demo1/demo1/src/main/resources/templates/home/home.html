@@ -1,0 +1,105 @@
+<section layout:decorate="~{layout}" layout:fragment="content">
+    <div class="home-main">
+        <!-- Main Carousel -->
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-bottom: 20px;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner rounded-3" style="box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <div class="carousel-item active">
+                    <img src="https://cdnv2.tgdd.vn/mwg-static/tgdd/Banner/b4/a2/b4a2e300d8e9a48aabafb85e7170b5de.jpg"
+                        class="d-block w-100" alt="Banner 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdnv2.tgdd.vn/mwg-static/tgdd/Banner/12/c6/12c60338494c1708fe45e8f602517800.jpg"
+                        class="d-block w-100" alt="Banner 2">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"
+                    style="background-color: rgba(0,0,0,0.5); border-radius: 50%; padding: 20px;"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"
+                    style="background-color: rgba(0,0,0,0.5); border-radius: 50%; padding: 20px;"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- Promo Section (Khuyến mãi online) -->
+        <div class="promo-section">
+            <div class="promo-header">
+                <h2><i class="fa-solid fa-bolt-lightning text-warning"></i> KHUYẾN MÃI ONLINE</h2>
+                <div class="countdown-timer">Kết thúc sau: 00:49:52</div>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <div class="cat-item active">FLASH SALE</div>
+                <div class="cat-item" th:each="cat : ${categories}" th:text="${cat.name.toUpperCase()}">DANH MỤC</div>
+            </div>
+
+            <div class="product-grid" style="padding: 10px;">
+                <a th:href="@{/products/edit/{id}(id=${product.id})}" class="product-card"
+                    th:each="product : ${products}">
+                    <span class="pd-tag">Trả góp 0%</span>
+                    <img th:src="@{'/images/' + ${product.imageUrl}}"
+                        onerror="this.src='https://cdn.tgdd.vn/Products/Images/42/334932/samsung-galaxy-a56-5g-gray-thumb-1-600x600.jpg'"
+                        alt="Product">
+
+                    <h3 class="pd-title" th:text="${product.name}">Tên sản phẩm</h3>
+                    <div>
+                        <div class="pd-old-price">12.000.000₫</div>
+                        <div class="pd-price"
+                            th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' ₫'"></div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center" style="padding: 15px; border-top: 1px solid #eee;">
+                <a th:href="@{/products}" style="color: #2f80ed; font-weight: bold;">Xem tất cả sản phẩm <i
+                        class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Suggestions Section -->
+        <div class="suggestions-section"
+            style="background: #fff; padding: 20px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase;">Gợi ý cho
+                bạn</h2>
+
+            <div class="product-grid">
+                <div class="product-card" th:each="product : ${products}"
+                    style="display: flex; flex-direction: column;">
+                    <a th:href="@{/products/edit/{id}(id=${product.id})}" style="flex-grow: 1;">
+                        <img th:src="@{'/images/' + ${product.imageUrl}}"
+                            onerror="this.src='https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg'"
+                            alt="Product">
+                        <h3 class="pd-title" th:text="${product.name}"></h3>
+                        <div>
+                            <div class="pd-old-price" style="visibility: visible;">34.990.000₫</div>
+                            <div class="pd-price"
+                                th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' ₫'"></div>
+                        </div>
+                        <div style="color: #f59e0b; font-size: 12px; margin-bottom: 15px;">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+                            <span style="color: #999; margin-left: 5px;">99 đánh giá</span>
+                        </div>
+                    </a>
+
+                    <form th:action="@{/cart/add}" method="post" style="margin-top: auto;">
+                        <input type="hidden" name="productId" th:value="${product.id}">
+                        <button type="submit"
+                            style="width: 100%; padding: 8px; background: #fff; border: 1px solid var(--tgdd-blue); color: var(--tgdd-blue); border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.2s;">
+                            <i class="fa fa-cart-plus"></i> Chọn mua
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

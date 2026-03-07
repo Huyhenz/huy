@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}">
+
+<body>
+    <section layout:fragment="content">
+        <div class="container mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold text-white">Categories List</h2>
+                <a th:href="@{/categories/add}" class="btn btn-primary">
+                    <i class="fa fa-plus"></i> Add New Category
+                </a>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    <table class="table table-bordered table-hover mb-0">
+                        <thead class="table-dark text-center">
+                            <tr>
+                                <th width="100">ID</th>
+                                <th width="100">Image</th>
+                                <th>Name</th>
+                                <th>Group</th>
+                                <th width="200">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="category : ${categories}" class="text-center align-middle bg-white">
+                                <td th:text="${category.id}"></td>
+                                <td>
+                                    <img th:if="${category.imageUrl != null and !category.imageUrl.isEmpty()}"
+                                        th:src="${category.imageUrl}" alt="Category Image"
+                                        style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                                    <span th:unless="${category.imageUrl != null and !category.imageUrl.isEmpty()}"
+                                        class="text-muted small">No Image</span>
+                                </td>
+                                <td th:text="${category.name}" class="fw-bold"></td>
+                                <td th:text="${category.groupName}"></td>
+                                <td>
+                                    <a th:href="@{/categories/edit/{id}(id=${category.id})}"
+                                        class="btn btn-success btn-sm">
+                                        <i class="fa fa-edit"></i> Edit
+                                    </a>
+
+                                    <a th:href="@{/categories/delete/{id}(id=${category.id})}"
+                                        class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
+                                        <i class="fa fa-trash"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr th:if="${categories.isEmpty()}">
+                                <td colspan="5" class="text-center p-4 bg-light">No categories found.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

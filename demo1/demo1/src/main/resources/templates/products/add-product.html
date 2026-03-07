@@ -1,0 +1,45 @@
+<section layout:fragment="content" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header py-3 text-center" style="background-color: #ffd400;">
+                    <h4 class="mb-0 fw-bold text-dark">THÊM SẢN PHẨM MỚI</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form th:action="@{/products/add}" th:object="${product}" method="post">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary small text-uppercase">Tên sản phẩm</label>
+                            <input type="text" th:field="*{name}" class="form-control form-control-lg border-2"
+                                   placeholder="Ví dụ: iPhone 15 Pro Max..." required>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-secondary small text-uppercase">Giá bán (VNĐ)</label>
+                                <input type="number" th:field="*{price}" class="form-control form-control-lg border-2"
+                                       placeholder="0" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-secondary small text-uppercase">Danh mục</label>
+                                <select th:field="*{category}" class="form-select form-select-lg border-2">
+                                    <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary small text-uppercase">Mô tả sản phẩm</label>
+                            <textarea th:field="*{description}" class="form-control border-2" rows="4"
+                                      placeholder="Nhập thông số kỹ thuật hoặc đặc điểm nổi bật..."></textarea>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5">
+                            <button type="submit" class="btn btn-warning btn-lg px-5 fw-bold text-dark shadow-sm">LƯU SẢN PHẨM</button>
+                            <a th:href="@{/products}" class="btn btn-light btn-lg px-5 border fw-bold text-muted shadow-sm">HỦY BỎ</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

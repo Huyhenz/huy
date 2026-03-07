@@ -1,0 +1,43 @@
+<section layout:fragment="content" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header py-3 text-center bg-success text-white">
+                    <h4 class="mb-0 fw-bold text-uppercase">Chỉnh sửa thông tin sản phẩm</h4>
+                </div>
+                <div class="card-body p-4 bg-light">
+                    <form th:action="@{/products/update/{id}(id=${product.id})}" th:object="${product}" method="post">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-success small">TÊN SẢN PHẨM</label>
+                            <input type="text" th:field="*{name}" class="form-control border-success shadow-sm" required>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-success small">GIÁ BÁN HIỆN TẠI</label>
+                                <input type="number" th:field="*{price}" class="form-control border-success shadow-sm" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-success small">DANH MỤC</label>
+                                <select th:field="*{category}" class="form-select border-success shadow-sm">
+                                    <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-success small">MÔ TẢ CHI TIẾT</label>
+                            <textarea th:field="*{description}" class="form-control border-success shadow-sm" rows="5"></textarea>
+                        </div>
+
+                        <hr class="my-4">
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg fw-bold shadow">CẬP NHẬT THAY ĐỔI</button>
+                            <a th:href="@{/products}" class="btn btn-outline-secondary btn-sm">Quay về danh sách</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

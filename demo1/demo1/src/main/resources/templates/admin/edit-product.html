@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+
+<head>
+    <title>Sửa Sản Phẩm</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div
+            style="max-width: 600px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <h2 style="text-transform: uppercase;">Sửa Sản Phẩm #<span th:text="${product.id}"></span></h2>
+                <a th:href="@{/admin/product}" style="color: #2f80ed; text-decoration: none;">&laquo; Quay lại danh
+                    sách</a>
+            </div>
+
+            <form th:action="@{/admin/product/edit/{id}(id=${product.id})}" th:object="${product}" method="post">
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Tên sản phẩm</label>
+                    <input type="text" th:field="*{name}" required
+                        style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Giá gốc (VNĐ)</label>
+                        <input type="number" th:field="*{originalPrice}" required
+                            style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Giá bán (VNĐ)</label>
+                        <input type="number" th:field="*{currentPrice}" required
+                            style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Link ảnh sản phẩm</label>
+                        <input type="text" th:field="*{imageUrl}" required placeholder="https://..."
+                            style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">% Giảm giá</label>
+                        <input type="text" th:field="*{discountPercent}" placeholder="VD: -10%"
+                            style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                    </div>
+                </div>
+
+                <h3 style="margin: 25px 0 15px; font-size: 16px;">Cấu hình</h3>
+                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Màn hình</label>
+                        <input type="text" th:field="*{screenSize}" placeholder="VD: 6.1 inch"
+                            style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">RAM</label>
+                        <input type="text" th:field="*{ram}" placeholder="VD: 8 GB"
+                            style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Lưu trữ</label>
+                        <input type="text" th:field="*{storage}" placeholder="VD: 128 GB"
+                            style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-bottom: 25px; align-items:flex-end;">
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nhãn dán (Mới, Trả
+                            góp..)</label>
+                        <input type="text" th:field="*{badgeText}"
+                            style="width: 100%; padding: 10px; border: 1px solid var(--tgdd-border); border-radius: 4px;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="checkbox" th:field="*{hot}">
+                            <strong>Là sản phẩm HOT?</strong>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit"
+                    style="background: #2f80ed; color: #fff; border: none; width: 100%; padding: 15px; font-size: 16px; font-weight: bold; text-transform: uppercase; border-radius: 4px; cursor: pointer;">
+                    Cập nhật thay đổi
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+
+<head>
+    <title th:text="${product.name} + ' - Giá Rẻ, Chính Hãng, Trả Góp 0%'">Chi Tiết Sản Phẩm</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <section class="detail detailv2">
+            <ul class="breadcrumb">
+                <li>
+                    <a th:href="@{/}">Điện thoại</a>
+                    <meta property="position" content="1">
+                </li>
+                <li>
+                    <span>›</span>
+                    <a th:href="@{/}">Điện thoại <span th:text="${product.category?.name}"></span></a>
+                    <meta property="position" content="2">
+                </li>
+            </ul>
+
+            <div class="product-name">
+                <h1 th:text="${product.name}">Điện thoại</h1>
+            </div>
+
+            <div class="box02">
+                <div class="box02__left">
+                    <div class="detail-rate">
+                        <p><i class="icondetail-bigstar"></i> <i class="fa fa-star text-warning"></i><i
+                                class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
+                                class="fa fa-star text-warning"></i><i class="fa fa-star-half-alt text-warning"></i> 4.9
+                        </p>
+                    </div>
+                </div>
+                <div class="box02__right">
+                    <i class="icondetail-sosanh"></i>
+                    So sánh
+                </div>
+                <a href="#tab-spec" class="tab-spec">
+                    <i class="icondetail-spec"></i>
+                    Thông số
+                </a>
+            </div>
+
+            <div class="box_main">
+                <div class="box_left">
+                    <aside id="slider-detail">
+                        <div class="wrap-slider">
+                            <div class="feature-img">
+                                <div class="thubmail-slide full">
+                                    <div class="owl-carousel slider-img" id="slider-feature">
+                                        <div class="item-img"
+                                            style="display: flex; justify-content: center; align-items: center; background: #fff; padding: 20px; border-radius: 8px;">
+                                            <img th:src="${product.imageUrl}" th:alt="${product.name}"
+                                                onerror="this.src='/images/placeholder.jpg'"
+                                                style="max-width: 100%; max-height: 400px; object-fit: contain;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gallery-img mt-3 d-flex justify-content-center">
+                                <div class="border rounded p-1 border-danger"
+                                    style="width: 60px; height: 60px; cursor: pointer;">
+                                    <img th:src="${product.imageUrl}" onerror="this.src='/images/placeholder.jpg'"
+                                        class="w-100 h-100" style="object-fit: contain;">
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="policy policy-vs mt-4" id="policy"
+                        style="border: 1px solid #e0e0e0; border-radius: 4px; padding: 15px; background: #fff;">
+                        <h2 style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Thế Giới Di Động cam kết
+                        </h2>
+                        <ul class="policy__list" style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <div class="pl-icon" style="margin-right: 10px; width: 24px;">
+                                    <i class="fa fa-undo text-primary"></i>
+                                </div>
+                                <div class="pl-txt" style="font-size: 14px;">
+                                    <p style="margin: 0;">Hư gì đổi nấy <b>12 tháng</b> tại siêu thị toàn quốc (miễn phí
+                                        tháng đầu)</p>
+                                </div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                                <div class="pl-icon" style="margin-right: 10px; width: 24px;">
+                                    <i class="fa fa-box-open text-primary"></i>
+                                </div>
+                                <div class="pl-txt" style="font-size: 14px;">
+                                    <p style="margin: 0;">Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cáp Type C</p>
+                                </div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start;">
+                                <div class="pl-icon" style="margin-right: 10px; width: 24px;">
+                                    <i class="fa fa-shield-alt text-primary"></i>
+                                </div>
+                                <div class="pl-txt" style="font-size: 14px;">
+                                    <p style="margin: 0;">Bảo hành <b>chính hãng điện thoại 1 năm</b> tại các trung tâm
+                                        bảo hành hãng</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box_right">
+                    <div class="group-box03 mb-3">
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-secondary active fw-bold border-dark"
+                                style="font-size: 13px;">256GB</button>
+                            <button class="btn btn-outline-secondary fw-bold" style="font-size: 13px;">512GB</button>
+                        </div>
+                    </div>
+
+                    <div class="box_saving v2 olgr twoprice"
+                        style="background: #fdf5f5; border: 1px solid #fee2e2; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                        <div class="bs_title">
+                            <div class="bs_price">
+                                <div style="font-size: 12px; font-weight: bold; color: #d0021c; margin-bottom: 5px;">Mua
+                                    Trả trước 0đ, Trả chậm qua tín dụng</div>
+                                <strong style="color: #d0021c; font-size: 28px; font-weight: bold; line-height: 1;"
+                                    th:text="${product.currentPrice != null ? #numbers.formatDecimal(product.currentPrice, 0, 'COMMA', 0, 'POINT') + '₫' : 'Liên hệ'}">12.790.000₫</strong>
+                                <em th:if="${product.originalPrice != null and product.originalPrice > product.currentPrice}"
+                                    style="text-decoration: line-through; color: #999; font-size: 16px; margin-left: 10px;"
+                                    th:text="${#numbers.formatDecimal(product.originalPrice, 0, 'COMMA', 0, 'POINT')} + '₫'">18.160.000₫</em>
+                                <i th:if="${product.discountPercent != null}"
+                                    style="color: #d0021c; font-size: 14px; margin-left: 5px; font-style: normal;"
+                                    th:text="${product.discountPercent}">(-29%)</i>
+                            </div>
+                        </div>
+
+                        <div class="bs_content mt-3">
+                            <div class="block__promo"
+                                style="border: 1px solid #e0e0e0; border-radius: 4px; overflow: hidden; background: #fff;">
+                                <div class="pr-top"
+                                    style="background: #f8f9fa; padding: 10px; border-bottom: 1px solid #e0e0e0; font-weight: bold;">
+                                    <p class="pr-txtb mb-0"><i class="fa fa-gift text-danger me-2"></i>Khuyến mãi</p>
+                                </div>
+                                <div class="pr-content" style="padding: 10px; font-size: 14px;">
+                                    <div class="pr-item mb-2" style="display: flex;">
+                                        <span class="nb"
+                                            style="background: #2f80ed; color: #fff; width: 16px; height: 16px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; font-size: 10px; margin-right: 8px; flex-shrink: 0; margin-top: 3px;">1</span>
+                                        <div class="divb-right">
+                                            <p style="margin: 0;">Phiếu mua hàng trị giá 1,000,000đ mua tablet</p>
+                                        </div>
+                                    </div>
+                                    <div class="pr-item" style="display: flex;">
+                                        <span class="nb"
+                                            style="background: #2f80ed; color: #fff; width: 16px; height: 16px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; font-size: 10px; margin-right: 8px; flex-shrink: 0; margin-top: 3px;">2</span>
+                                        <div class="divb-right">
+                                            <p style="margin: 0;">Nhập mã VNPAY giảm tối đa 100,000đ khi thanh toán qua
+                                                VNPAY-QR</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-button buy">
+                        <form th:action="@{/cart/add}" method="post"
+                            style="display: flex; flex-direction: column; gap: 10px;">
+                            <input type="hidden" name="productId" th:value="${product.id}">
+                            <input type="hidden" name="quantity" value="1">
+
+                            <div style="display: flex; gap: 10px;">
+                                <button type="submit" class="btn-buynow buy"
+                                    style="background: linear-gradient(#f59000, #fd6e1d); border: none; border-radius: 4px; padding: 10px; color: #fff; flex: 1; text-align: center; cursor: pointer; transition: opacity 0.3s; display: block;">
+                                    <strong style="display: block; font-size: 18px; text-transform: uppercase;">Mua
+                                        ngay</strong>
+                                    <span style="font-size: 13px;">Giao tận nơi hoặc nhận tại siêu thị</span>
+                                </button>
+
+                                <button type="submit" formaction="/cart/add" name="action" value="add"
+                                    style="background: #fff; border: 1px solid #2f80ed; border-radius: 4px; padding: 10px; color: #2f80ed; flex: 0 0 120px; text-align: center; cursor: pointer; transition: background 0.3s; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                    <i class="fa fa-cart-plus mb-1" style="font-size: 20px;"></i>
+                                    <span style="font-size: 12px; font-weight: bold;">Thêm vào giỏ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; gap: 10px;">
+                                <button type="button" class="btn-ins"
+                                    style="background: #2f80ed; border: none; border-radius: 4px; padding: 10px; color: #fff; flex: 1; text-align: center; cursor: pointer; transition: background 0.3s;">
+                                    <strong style="display: block; font-size: 14px; text-transform: uppercase;">Mua trả
+                                        góp 0%</strong>
+                                    <span style="font-size: 12px; font-weight: normal;">Duyệt hồ sơ trong 5 phút</span>
+                                </button>
+                                <button type="button" class="btn-ins"
+                                    style="background: #2f80ed; border: none; border-radius: 4px; padding: 10px; color: #fff; flex: 1; text-align: center; cursor: pointer; transition: background 0.3s;">
+                                    <strong style="display: block; font-size: 14px; text-transform: uppercase;">Trả góp
+                                        qua thẻ</strong>
+                                    <span style="font-size: 12px; font-weight: normal;">Visa, Mastercard, JCB</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="callorder mt-3" style="text-align: center; font-size: 14px;">
+                        <p style="margin: 0;">Gọi đặt mua <a href="tel:1900232460"
+                                style="color: #2f80ed; font-weight: bold;">1900 232 460</a> (8:00 - 21:30)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4 mb-4">
+                <div class="col-md-8">
+                    <div class="article-content border rounded p-3 bg-white">
+                        <h3 class="fw-bold mb-3" style="font-size: 18px;">Thông tin sản phẩm</h3>
+                        <p>Sản phẩm chính hãng với nhiều ưu đãi hấp dẫn.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="specs-list bg-white border rounded p-3">
+                        <h3 class="fw-bold mb-3" style="font-size: 18px;">Cấu hình <span
+                                th:text="${product.name}"></span></h3>
+                        <ul class="list-unstyled mb-0" style="font-size: 14px;">
+                            <li class="d-flex py-2 border-bottom bg-light px-2 rounded">
+                                <span class="text-muted w-50">Màn hình:</span>
+                                <strong class="w-50" th:text="${product.screenSize}"></strong>
+                            </li>
+                            <li class="d-flex py-2 border-bottom px-2">
+                                <span class="text-muted w-50">RAM:</span>
+                                <strong class="w-50" th:text="${product.ram}"></strong>
+                            </li>
+                            <li class="d-flex py-2 border-bottom bg-light px-2 rounded">
+                                <span class="text-muted w-50">Lưu trữ:</span>
+                                <strong class="w-50" th:text="${product.storage}"></strong>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="btn btn-outline-primary w-100 mt-3 d-flex align-items-center justify-content-center"
+                            style="font-size: 14px;">
+                            Xem thêm cấu hình chi tiết <i class="fa fa-caret-down ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>
+
+</html>

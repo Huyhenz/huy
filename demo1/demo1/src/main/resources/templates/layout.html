@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thế Giới Di Động</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- TGDD CSS -->
+    <link rel="stylesheet" th:href="@{/css/tgdd-style.css}">
+</head>
+
+<body>
+    <!-- Top Banner Promotion (Optional) -->
+    <div class="top-banner-header" style="background: #ffd400; text-align: center;">
+        <img src="https://cdn.tgdd.vn/2023/10/banner/1200-44-1200x44-6.png" style="max-width: 1200px; width: 100%;"
+            alt="Top Banner">
+    </div>
+
+    <!-- Main Header -->
+    <header class="header__top">
+        <div class="header__container">
+            <a th:href="@{/}" class="header__logo"
+                style="display: flex; align-items: center; justify-content: center; text-decoration: none; flex: 0 0 auto; min-width: 200px;">
+                <span
+                    style="font-family: Arial, Helvetica, sans-serif; font-weight: 900; font-style: italic; font-size: 22px; color: #000; letter-spacing: -1px; line-height: 1; display:flex; align-items:flex-end; white-space: nowrap;">
+                    thegioididong
+                    <span style="font-size: 10px; margin-left: 1px; margin-bottom: 1px; font-weight: 700;">.com</span>
+                </span>
+            </a>
+
+            <div class="header__search">
+                <input type="text" placeholder="Bạn tìm gì...">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+
+            <div class="header__actions">
+                <a href="#" class="action-item">Lịch sử<br>đơn hàng</a>
+                <a th:href="@{/cart}" class="action-item">
+                    <i class="fa fa-shopping-cart" style="font-size: 18px;"></i>
+                    <span>Giỏ hàng</span>
+                </a>
+                <a href="#" class="action-item">24h<br>Công nghệ</a>
+                <a href="#" class="action-item">Hỏi Đáp</a>
+            </div>
+            <div class="header__user ms-3">
+                <a href="#" class="text-dark fw-bold text-decoration-none" style="font-size: 13px;">Đăng nhập</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="header__nav">
+        <ul class="nav__container">
+            <li class="nav__item"><a th:href="@{/}" style="white-space: nowrap;"><i class="fa fa-mobile-alt"></i> Điện
+                    thoại</a></li>
+            <li class="nav__item"><a href="#" style="white-space: nowrap;"><i class="fa fa-laptop"></i> Laptop</a></li>
+            <li class="nav__item" style="white-space: nowrap;">
+                <a href="#"><i class="fa fa-headphones"></i> Phụ kiện <i class="fa fa-angle-down"></i></a>
+                <!-- Mega Menu Dropdown -->
+                <div class="subnav" th:if="${menuCategories != null and !menuCategories.isEmpty()}">
+                    <div class="subnav-group" th:each="entry : ${menuCategories}">
+                        <h4 th:text="${entry.key}">Tên Nhóm</h4>
+                        <ul>
+                            <li th:each="cat : ${entry.value}">
+                                <a th:href="@{'/category/' + ${cat.id}}" th:text="${cat.name}">Tên danh mục</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="nav__item" style="white-space: nowrap;"><a href="#"><i class="fa fa-clock"></i> Smartwatch</a>
+            </li>
+            <li class="nav__item" style="white-space: nowrap;"><a href="#"><i class="fa fa-stopwatch"></i> Đồng hồ</a>
+            </li>
+            <li class="nav__item" style="white-space: nowrap;"><a href="#"><i class="fa fa-tablet-alt"></i> Tablet</a>
+            </li>
+            <li class="nav__item" style="white-space: nowrap;"><a href="#"><i class="fa fa-desktop"></i> Máy cũ, Thu cũ
+                    <i class="fa fa-angle-down"></i></a></li>
+            <li class="nav__item" style="white-space: nowrap;"><a href="#"><i class="fa fa-tv"></i> Màn hình, Máy in <i
+                        class="fa fa-angle-down"></i></a></li>
+            <li class="nav__item" style="white-space: nowrap;"><a href="#"><i class="fa fa-sim-card"></i> Sim, Thẻ cào
+                    <i class="fa fa-angle-down"></i></a></li>
+            <li class="nav__item" style="white-space: nowrap;"><a href="#"><i class="fa fa-bolt"></i> Dịch vụ tiện ích
+                    <i class="fa fa-angle-down"></i></a></li>
+            <!-- Admin items -->
+            <li class="nav__item"><a th:href="@{/categories}"><i class="fa fa-folder-open"></i> QL DM</a></li>
+            <li class="nav__item"><a th:href="@{/admin/products}"><i class="fa fa-boxes"></i> QL SP</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main layout:fragment="content" class="main-content">
+        <!-- Content will be injected here -->
+    </main>
+
+    <!-- Flash Messages (shown after redirect) -->
+    <div th:if="${successMessage}" style="
+        position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+        background: #2e7d32; color: #fff; padding: 16px 32px;
+        border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        font-size: 15px; font-weight: bold; z-index: 9999;
+        display: flex; align-items: center; gap: 10px; max-width: 90vw;
+        animation: fadeInDown 0.4s ease;">
+        <span style="font-size: 20px;">✅</span>
+        <span th:text="${successMessage}"></span>
+        <button onclick="this.parentElement.style.display='none'"
+            style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;margin-left:10px;">×</button>
+    </div>
+    <div th:if="${errorMessage}" style="
+        position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+        background: #c62828; color: #fff; padding: 16px 32px;
+        border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        font-size: 15px; font-weight: bold; z-index: 9999;
+        display: flex; align-items: center; gap: 10px; max-width: 90vw;
+        animation: fadeInDown 0.4s ease;">
+        <span style="font-size: 20px;">❌</span>
+        <span th:text="${errorMessage}"></span>
+        <button onclick="this.parentElement.style.display='none'"
+            style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;margin-left:10px;">×</button>
+    </div>
+    <style>
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col">
+                <h4>Tổng đài hỗ trợ (Miễn phí gọi)</h4>
+                <ul>
+                    <li>Gọi mua: <strong>1800.1060</strong> (7:30 - 22:00)</li>
+                    <li>Khiếu nại: <strong>1800.1062</strong> (8:00 - 21:30)</li>
+                    <li>Bảo hành: <strong>1800.1064</strong> (8:00 - 21:00)</li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Thông tin công ty</h4>
+                <ul>
+                    <li><a href="#">Giới thiệu công ty (MWG.vn)</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="#">Gửi góp ý, khiếu nại</a></li>
+                    <li><a href="#">Tìm siêu thị (3.385 shop)</a></li>
+                    <li><a href="#">Xem bản mobile</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Thông tin khác</h4>
+                <ul>
+                    <li><a href="#">Tích điểm Quà tặng VIP</a></li>
+                    <li><a href="#">Lịch sử mua hàng</a></li>
+                    <li><a href="#">Tìm hiểu về mua trả góp</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Xem thêm</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Website cùng tập đoàn</h4>
+                <div class="d-flex flex-wrap gap-2">
+                    <img src="https://cdn.tgdd.vn/mwgcart/mwg-core/Content/desktop/images/logo-dmx.png" width="100"
+                        alt="Điện Máy Xanh">
+                    <img src="https://cdn.tgdd.vn/mwgcart/mwg-core/Content/desktop/images/logo-bhx.png" width="100"
+                        alt="Bách Hóa Xanh">
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026. Công ty cổ phần Thế Giới Di Động. GPĐKKD: 0303217354 do sở KH & ĐT TP.HCM cấp ngày
+                02/01/2007. GĐ/ĐDPL: Đoàn Văn Hiểu Em.</p>
+            <p>Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email:
+                cskh@thegioididong.com.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

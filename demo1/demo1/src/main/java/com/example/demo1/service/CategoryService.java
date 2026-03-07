@@ -1,0 +1,55 @@
+package com.example.demo1.service;
+
+import com.example.demo1.model.Category;
+import com.example.demo1.repository.CategoryRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import jakarta.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Optional;
+
+/**
+ * Service class for managing categories.
+ */
+@Service
+@Transactional
+public class CategoryService {
+
+    private final CategoryRepository categoryRepository;
+
+    // constructor injection – initialises the final field
+    public CategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
+
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
+    public Optional<Category> getCategoryById(Long id) {
+        return categoryRepository.findById(id);
+    }
+
+    public void addCategory(Category category) {
+        categoryRepository.save(category);
+    }
+
+    public void updateCategory(@NotNull Category category) {
+        Category existingCategory = categoryRepository.findById(category.getId())
+                .orElseThrow(
+                        () -> new IllegalStateException("Category with ID " + category.getId() + " does not exist."));
+
+        existingCategory.setName(category.getName());
+        existingCategory.setGroupName(category.getGroupName());
+        existingCategory.setImageUrl(category.getImageUrl());
+
+        categoryRepository.save(existingCategory);
+    }
+
+    public void deleteCategoryById(Long id) {
+        if (!categoryRepository.existsById(id)) {
+            throw new IllegalStateException("Category with ID " + id + " does not exist.");
+        }
+        categoryRepository.deleteById(id);
+    }
+}

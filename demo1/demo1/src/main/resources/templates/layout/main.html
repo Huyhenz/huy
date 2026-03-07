@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title layout:title-pattern="$CONTENT_TITLE - The Gioi Di Dong Clone">Thế Giới Di Động</title>
+    <link rel="stylesheet" th:href="@{/css/tgdd-style.css}">
+    <!-- Use FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Top Header -->
+    <header class="tgdd-header">
+        <div class="header-top">
+            <a href="/" class="header-logo"><img
+                    src="https://cdn.tgdd.vn/mwgcart/mwgcore/materials/system/logo-tgdd.png" alt="Thế Giới Di Động"
+                    style="height: 35px; vertical-align: middle;"></a>
+
+            <form action="/" class="header-search">
+                <input type="text" placeholder="Bạn tìm gì...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div class="header-actions">
+                <a href="/admin/product" class="admin-link"><i class="fas fa-cogs"></i> Về Quản Trị</a>
+                <a href="/cart" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                    <span class="cart-count" th:text="${cartQuantity != null ? cartQuantity : 0}">0</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Category Navigation with Mega Menu -->
+        <nav class="header-nav">
+            <div class="nav-container">
+                <a href="#"><i class="fas fa-mobile-alt"></i> Điện thoại</a>
+                <a href="#"><i class="fas fa-laptop"></i> Laptop</a>
+                <a href="#"><i class="fas fa-tablet-alt"></i> Tablet</a>
+
+                <!-- ===== PHỤ KIỆN MEGA MENU ===== -->
+                <div class="nav-mega-wrapper" th:if="${menuCategories != null and !menuCategories.isEmpty()}">
+                    <a href="#" class="nav-mega-trigger"><i class="fas fa-headphones"></i> Phụ kiện <i
+                            class="fas fa-caret-down" style="font-size:11px;"></i></a>
+                    <div class="navmwg">
+                        <div class="item-child" th:each="entry : ${menuCategories}">
+                            <strong th:text="${entry.key}">Tên Nhóm</strong>
+                            <a th:each="cat : ${entry.value}" th:href="@{'/category/' + ${cat.id}}">
+                                <img class="lazy-menu" alt="thumb menu" width="25px"
+                                    th:src="${cat.imageUrl != null and !cat.imageUrl.isEmpty() ? cat.imageUrl : 'https://cdnv2.tgdd.vn/mwg-static/common/Common/99/61/9961578164909f8a9ee7678dc95feeb0.png'}">
+                                <h3 th:text="${cat.name}">Tên danh mục</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fallback nếu chưa có danh mục -->
+                <a th:unless="${menuCategories != null and !menuCategories.isEmpty()}" href="/categories"><i
+                        class="fas fa-headphones"></i> Phụ kiện</a>
+
+                <a href="#"><i class="fas fa-watch"></i> Smartwatch</a>
+                <a href="#"><i class="fas fa-tv"></i> Tivi</a>
+                <a href="/categories" style="margin-left:auto;"><i class="fas fa-th-list"></i> Quản lý danh mục</a>
+                <a href="/admin/products"><i class="fas fa-cogs"></i> Quản lý sản phẩm</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Dynamic Content -->
+    <main class="main-wrapper" layout:fragment="content">
+        <!-- Index, Details, Add Product etc -->
+    </main>
+
+    <!-- Footer Area -->
+    <footer class="tgdd-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Tổng đài hỗ trợ toàn quốc</h4>
+                <ul>
+                    <li>Gọi mua: 1900 232 460</li>
+                    <li>Khiếu nại: 1800 1062</li>
+                    <li>Bảo hành: 1900 232 464</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Về công ty</h4>
+                <ul>
+                    <li>Giới thiệu công ty</li>
+                    <li>Tuyển dụng</li>
+                    <li>Gửi góp ý, khiếu nại</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Thông tin chính sách</h4>
+                <ul>
+                    <li>Chính sách khuyến mãi</li>
+                    <li>Chính sách bảo mật</li>
+                    <li>Chính sách giao hàng</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Website cùng tập đoàn</h4>
+                <ul>
+                    <li>Điện máy XANH</li>
+                    <li>Bách hóa XANH</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

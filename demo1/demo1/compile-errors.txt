@@ -1,0 +1,195 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.example:demo1 >--------------------------
+[INFO] Building demo1 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ demo1 ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 90 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ demo1 ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 22 source files with javac [debug release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[39,40] cannot find symbol
+  symbol:   method getName()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[40,48] cannot find symbol
+  symbol:   method getCurrentPrice()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[41,49] cannot find symbol
+  symbol:   method getOriginalPrice()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[42,47] cannot find symbol
+  symbol:   method getDescription()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[43,44] cannot find symbol
+  symbol:   method getImageUrl()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[44,51] cannot find symbol
+  symbol:   method getDiscountPercent()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[45,46] cannot find symbol
+  symbol:   method getScreenSize()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[46,39] cannot find symbol
+  symbol:   method getRam()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[47,43] cannot find symbol
+  symbol:   method getStorage()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[48,45] cannot find symbol
+  symbol:   method getBadgeText()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[49,39] cannot find symbol
+  symbol:   method getHot()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[50,44] cannot find symbol
+  symbol:   method getCategory()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[29,50] cannot find symbol
+  symbol:   method getId()
+  location: class com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[29,73] cannot find symbol
+  symbol:   method getId()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[43,52] cannot find symbol
+  symbol:   method getId()
+  location: class com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[46,54] cannot find symbol
+  symbol:   method getId()
+  location: class com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[55,48] cannot find symbol
+  symbol:   method getId()
+  location: class com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/model/CartItem.java:[32,23] cannot find symbol
+  symbol:   method getCurrentPrice()
+  location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/controller/CategoryController.java:[60,21] cannot find symbol
+  symbol:   method setId(java.lang.Long)
+  location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[35,73] cannot find symbol
+  symbol:   method getId()
+  location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[37,87] cannot find symbol
+  symbol:   method getId()
+  location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[39,42] cannot find symbol
+  symbol:   method getName()
+  location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[40,47] cannot find symbol
+  symbol:   method getGroupName()
+  location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[41,46] cannot find symbol
+  symbol:   method getImageUrl()
+  location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/controller/GlobalControllerAdvice.java:[25,24] cannot find symbol
+  symbol:   method getGroupName()
+  location: variable c of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/controller/GlobalControllerAdvice.java:[25,53] cannot find symbol
+  symbol:   method getGroupName()
+  location: variable c of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/controller/GlobalControllerAdvice.java:[25,90] cannot find symbol
+  symbol:   method getGroupName()
+  location: variable c of type com.example.demo1.model.Category
+[INFO] 27 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.808 s
+[INFO] Finished at: 2026-03-05T10:50:26+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project demo1: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[39,40] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[40,48] cannot find symbol
+[ERROR]   symbol:   method getCurrentPrice()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[41,49] cannot find symbol
+[ERROR]   symbol:   method getOriginalPrice()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[42,47] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[43,44] cannot find symbol
+[ERROR]   symbol:   method getImageUrl()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[44,51] cannot find symbol
+[ERROR]   symbol:   method getDiscountPercent()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[45,46] cannot find symbol
+[ERROR]   symbol:   method getScreenSize()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[46,39] cannot find symbol
+[ERROR]   symbol:   method getRam()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[47,43] cannot find symbol
+[ERROR]   symbol:   method getStorage()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[48,45] cannot find symbol
+[ERROR]   symbol:   method getBadgeText()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[49,39] cannot find symbol
+[ERROR]   symbol:   method getHot()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/ProductService.java:[50,44] cannot find symbol
+[ERROR]   symbol:   method getCategory()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[29,50] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: class com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[29,73] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[43,52] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: class com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[46,54] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: class com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CartService.java:[55,48] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: class com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/model/CartItem.java:[32,23] cannot find symbol
+[ERROR]   symbol:   method getCurrentPrice()
+[ERROR]   location: variable product of type com.example.demo1.model.Product
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/controller/CategoryController.java:[60,21] cannot find symbol
+[ERROR]   symbol:   method setId(java.lang.Long)
+[ERROR]   location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[35,73] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[37,87] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[39,42] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[40,47] cannot find symbol
+[ERROR]   symbol:   method getGroupName()
+[ERROR]   location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/service/CategoryService.java:[41,46] cannot find symbol
+[ERROR]   symbol:   method getImageUrl()
+[ERROR]   location: variable category of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/controller/GlobalControllerAdvice.java:[25,24] cannot find symbol
+[ERROR]   symbol:   method getGroupName()
+[ERROR]   location: variable c of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/controller/GlobalControllerAdvice.java:[25,53] cannot find symbol
+[ERROR]   symbol:   method getGroupName()
+[ERROR]   location: variable c of type com.example.demo1.model.Category
+[ERROR] /C:/Users/Admin/J2EE/demo1/src/main/java/com/example/demo1/controller/GlobalControllerAdvice.java:[25,90] cannot find symbol
+[ERROR]   symbol:   method getGroupName()
+[ERROR]   location: variable c of type com.example.demo1.model.Category
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

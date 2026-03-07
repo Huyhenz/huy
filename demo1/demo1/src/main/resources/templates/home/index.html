@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+
+<head>
+    <title>Điện thoại, Laptop, Phụ kiện giá rẻ, phân phối chính hãng</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <!-- Sliding Banner Promo Placeholder -->
+        <div class="home-banner">
+            <img src="https://cdn.tgdd.vn/2023/10/banner/1200-44-1200x44-6.png" alt="Promo Top Banner"
+                style="border-radius:0;">
+            <img src="https://cdn.tgdd.vn/2023/10/banner/1200x200-1200x200-45.png" alt="Main Promo Banner"
+                style="margin-top: 5px;">
+        </div>
+
+        <h2 class="section-title">Gợi ý cho bạn</h2>
+
+        <div class="product-grid">
+            <a th:each="product : ${products}" th:href="@{/product/{id}(id=${product.id})}" class="product-card">
+
+                <!-- Bages (Installment or New) -->
+                <div th:if="${product.badgeText != null and product.badgeText != ''}" class="pd-badge"
+                    th:text="${product.badgeText}">Trả góp 0%</div>
+
+                <!-- Hot feature label -->
+                <img th:if="${product.hot}" class="pd-hot-badge"
+                    src="https://cdn.tgdd.vn/2020/10/campaign/Docquyen-3-38.png" alt="hot">
+
+                <!-- Product Image -->
+                <div class="pd-img-box">
+                    <img th:src="${product.imageUrl}" th:alt="${product.name}">
+                </div>
+
+                <!-- Online Only Label -->
+                <div class="pd-online-badge"><i class="fas fa-bolt"></i> ONLINE GIÁ RẺ QUÁ</div>
+
+                <!-- Title -->
+                <h3 class="pd-title" th:text="${product.name}">Samsung Galaxy S23 Ultra 5G 256GB</h3>
+
+                <!-- Specs Chip -->
+                <div class="pd-specs">
+                    <span th:text="${product.screenSize}">6.8"</span> • <span th:text="${product.ram}">8GB</span> •
+                    <span th:text="${product.storage}">256GB</span>
+                </div>
+
+                <!-- Pricing Grid -->
+                <div class="pd-price-row" th:if="${product.originalPrice &gt; product.currentPrice}">
+                    <span class="pd-old-price"
+                        th:text="${#numbers.formatDecimal(product.originalPrice, 0, 'COMMA', 0, 'POINT')} + '₫'">31.990.000₫</span>
+                    <span class="pd-discount" th:text="${product.discountPercent}">-28%</span>
+                </div>
+                <div class="pd-price-row">
+                    <span class="pd-price"
+                        th:text="${#numbers.formatDecimal(product.currentPrice, 0, 'COMMA', 0, 'POINT')} + '₫'">23.990.000₫</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
